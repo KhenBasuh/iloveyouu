@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine's Bouquet</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            overflow: hidden;
+            position: relative;
+            background-color: pink;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Video Background */
+        .video-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -2;
+        }
+
+        /* Floating Animation for Hearts, Flowers, and Chocolates */
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+        }
+
+        .floating-item {
+            position: absolute;
+            font-size: 24px;
+            opacity: 0.7;
+            animation: float 6s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) scale(0.5);
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-10vh) scale(1.2);
+                opacity: 0;
+            }
+        }
+
+        /* Bouquet Animation */
+        .bouquet {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            margin-top: 50px;
+            flex-wrap: wrap;
+        }
+
+        .stem {
+            width: 10px;
+            height: 150px;
+            background-color: green;
+            position: relative;
+            margin: 0 10px;
+        }
+
+        .flower-head {
+            position: absolute;
+            top: -40px;
+            left: 50%;
+            transform: translateX(-50%) scale(1);
+            font-size: 50px;
+            animation: bloom 2s infinite alternate ease-in-out;
+        }
+
+        @keyframes bloom {
+            0% {
+                transform: translateX(-50%) scale(1);
+            }
+            100% {
+                transform: translateX(-50%) scale(1.3);
+            }
+        }
+
+        /* Photo Frames with Flip Animation */
+        .photo-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 30px;
+            justify-content: center;
+            perspective: 1000px;
+        }
+
+        .photo-frame {
+            width: 200px;
+            height: 200px;
+            border: 10px solid white;
+            border-radius: 15px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+            position: relative;
+        }
+
+        .photo-frame:hover {
+            transform: rotateY(180deg);
+        }
+
+        /* Message Box */
+        .message-box {
+            width: 80%;
+            max-width: 500px;
+            padding: 20px;
+            margin-top: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            font-size: 24px;
+            font-family: 'Arial', sans-serif;
+        }
+
+        /* Bouncing Text Animation */
+        .bouncing-text span {
+            display: inline-block;
+            animation: bounce 1s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .floating-item {
+                font-size: 16px;
+            }
+            .flower-head {
+                font-size: 30px;
+            }
+            .photo-frame {
+                width: 150px;
+                height: 150px;
+            }
+            .message-box {
+                font-size: 18px;
+            }
+        }
+
+        /* Intro Message */
+        .intro-message {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: black;
+            color: white;
+            font-size: 32px;
+            z-index: 1;
+            animation: fade-out 8s forwards;
+        }
+
+        @keyframes fade-out {
+            0% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="intro-message">TUKAY I LOVE YOU SOO MUCH! HAPPY VALENTINES DAY!</div>
+    
+    <video class="video-background" autoplay loop muted>
+        <source src="bgg.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    
+    <div class="background"></div>
+
+    <div class="bouquet">
+        <div class="stem"><div class="flower-head">🌸</div></div>
+        <div class="stem"><div class="flower-head">🌼</div></div>
+        <div class="stem"><div class="flower-head">🌻</div></div>
+    </div>
+
+    <div class="photo-container">
+        <div class="photo-frame" style="background-image: url('ikay.jpg');"></div>
+        <div class="photo-frame" style="background-image: url('ikay1.jpg');"></div>
+        <div class="photo-frame" style="background-image: url('ikay2.jpg');"></div>
+        <div class="photo-frame" style="background-image: url('ikay3.jpg');"></div>
+    </div>
+
+    <div class="message-box bouncing-text">
+        <span>H</span><span>a</span><span>p</span><span>p</span><span>y</span> <span>V</span><span>a</span><span>l</span><span>e</span><span>n</span><span>t</span><span>i</span><span>n</span><span>e</span> <span>D</span><span>a</span><span>y</span> <span>t</span><span>o</span> <span>t</span><span>h</span><span>e</span> <span>o</span><span>n</span><span>e</span> <span>w</span><span>h</span><span>o</span> <span>m</span><span>a</span><span>k</span><span>e</span><span>s</span> <span>m</span><span>y</span> <span>h</span><span>e</span><span>a</span><span>r</span><span>t</span> <span>s</span><span>k</span><span>i</span><span>p</span> <span>a</span> <span>b</span><span>e</span><span>a</span><span>t</span>.<span>Y</span><span>o</span><span>u</span>’<span>r</span><span>e</span> <span>m</span><span>y</span> <span>e</span><span>v</span><span>e</span><span>r</span><span>y</span><span>t</span>h<span>i</span><span>n</span><span>g</span>, <span>a</span><span>n</span><span>d</span> <span>I</span>’<span>m</span> <span>s</span><span>o</span> <span>l</span><span>u</span><span>c</span><span>k</span><span>y</span> <span>t</span><span>o</span> <span>c</span><span>a</span><span>l</span><span>l</span> <span>y</span><span>o</span><span>u</span> <span>m</span><span>i</span><span>n</span><span>e</span>. <span>&#10084;&#65039;</span>
+    </div>    
+
+    <script>
+        function createFloatingItems() {
+            const background = document.querySelector('.background');
+            const items = ['♥', '🌸', '🍫'];
+            for (let i = 0; i < 30; i++) {
+                let item = document.createElement('div');
+                item.classList.add('floating-item');
+                item.innerHTML = items[Math.floor(Math.random() * items.length)];
+                item.style.left = Math.random() * 100 + 'vw';
+                item.style.animationDuration = (Math.random() * 3 + 3) + 's';
+                background.appendChild(item);
+            }
+        }
+        createFloatingItems();
+    </script>
+</body>
+</html>
